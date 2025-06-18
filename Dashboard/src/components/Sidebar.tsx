@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { IoIosHome } from "react-icons/io";
-import { FaCalendar, FaChartLine, FaFolder, FaHamburger, FaUser } from "react-icons/fa";
-import Header from './Header';
+import { FaCalendar, FaChartLine, FaFolder, FaUser } from "react-icons/fa";
 
-const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+interface Props{
+    collapsed: boolean;
+}
+
+interface NavLinkItems{
+    name: string;
+    icon: React.ComponentType<{ className?: string }>;
+}
+
+const Sidebar = ({collapsed}: Props) => {
   const [activeItem, setActiveItem] = useState('Dashboard');
 
-  const toggleSidebar = () => {
-    setCollapsed(!collapsed);
-  };
-
-  const navItems = [
+  const navItems: NavLinkItems[] = [
     { name: 'Dashboard', icon: IoIosHome },
     { name: 'Team', icon: FaUser },
     { name: 'Projects', icon: FaFolder },
@@ -23,7 +26,7 @@ const Sidebar = () => {
     <>
       <div 
         className={`bg-white shadow-lg transition-all duration-300 ease-in-out h-screen
-          ${collapsed ? 'w-20' : 'w-55'}`}
+          ${collapsed ? 'w-20' : 'w-64'}`}
       >
         <div className="flex flex-col h-full">
           {/* Logo/Sidebar Header */}
@@ -58,7 +61,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <Header toggleSidebar={toggleSidebar}  sidebarCollapsed={collapsed}/>
+      {/* <Header toggleSidebar={toggleSidebar}  sidebarCollapsed={collapsed}/> */}
       </>
   );
 };

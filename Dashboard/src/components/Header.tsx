@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaAdjust, FaChevronDown, FaHamburger, FaMoon, FaSun, FaUser } from 'react-icons/fa';
+import { FaChevronDown, FaMoon, FaSun, FaUser } from 'react-icons/fa';
 import { MdLogout, MdOutlineSettings } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -16,8 +16,6 @@ interface DropdownItems {
 const Header = ({toggleSidebar, sidebarCollapsed}: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
-
-  const headerWidth = sidebarCollapsed ? 'calc(100% - 5rem)' : 'calc(100% - 13.75rem)';
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -36,7 +34,7 @@ const Header = ({toggleSidebar, sidebarCollapsed}: HeaderProps) => {
   ];
 
   return (
-    <header className={`sticky top-0 ${sidebarCollapsed ? 'w-[95%]' : 'w-[83%]'} ${darkMode ? 'dark' : ''}`}>
+    <header className={`sticky top-0 w-[100%] ${darkMode ? 'dark' : ''}`}>
       <div className="flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-b border-gray-200">
         <div>
             <button
