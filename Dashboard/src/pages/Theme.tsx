@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react";
 import useThemeStore from "../zustand/themeStore";
 
 const Theme = () => {
-  const theme = useThemeStore((state) => state.theme);
-  
+   const { theme, toggleTheme } = useThemeStore();
+
+   useEffect(() => {
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }, []);
+
   return (
-    <div className={`text-amber-300 ${theme}`}>
-      <p>Current theme: {theme}</p>
-    </div>
+    <button 
+      onClick={toggleTheme}
+      className={`px-4 py-2 rounded-md dark:bg-gray-800 bg-gray-200 text-gray-800 dark:text-gray-200`}
+    >
+      {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+    </button>
   );
 };
 

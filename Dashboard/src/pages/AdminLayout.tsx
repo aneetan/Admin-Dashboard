@@ -35,13 +35,13 @@ const AdminLayout = () => {
           />
           </div>
           
-          <div className="bg-gray-50">
-            <div className="bg-white rounded-lg shadow p-6 min-h-[calc(100vh-100px)]">
+          <div className="bg-gray-50 dark:bg-gray-700 ">
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow p-6 min-h-[calc(100vh-80px)]">
               <Outlet />
             </div>
           </div>
 
-          <div className='flex justify-center items-center pt-2'>
+          <div className='flex justify-center items-center pt-2 dark:bg-gray-700'>
             <CustomFooter/>
           </div>
 

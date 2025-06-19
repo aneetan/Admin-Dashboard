@@ -1,7 +1,7 @@
 const CustomFooter = () => {
   return (
     <>
-        <span>
+        <span className="dark:text-gray-400">
           Admin ©{new Date().getFullYear()} 
         </span>
       

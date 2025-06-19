@@ -53,7 +53,7 @@ const Header = ({toggleSidebar, sidebarCollapsed}: HeaderProps) => {
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
             aria-label="Toggle dark mode"
           >
-            {darkMode ? (
+            {theme === 'dark' ? (
               <FaSun className="w-5 h-5"/>
             ) : (
               <FaMoon className="w-5 h-5" />

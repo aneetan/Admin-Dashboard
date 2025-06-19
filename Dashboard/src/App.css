@@ -2,15 +2,3 @@
   --primary-color: #008080;
   --primary-color-hover: #367586;
 }
-
-.light {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  /* other light theme variables */
-}
-
-.dark {
-  --bg-color: #1a1a1a;
-  --text-color: #ffffff;
-  /* other dark theme variables */
-}
