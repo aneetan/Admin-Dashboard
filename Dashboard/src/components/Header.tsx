@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaChevronDown, FaMoon, FaSun, FaUser } from 'react-icons/fa';
 import { MdLogout, MdOutlineSettings } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import useThemeStore from '../zustand/themeStore';
 
 interface HeaderProps {
   toggleSidebar: () => void;
@@ -16,6 +17,7 @@ interface DropdownItems {
 const Header = ({toggleSidebar, sidebarCollapsed}: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useThemeStore();
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -47,12 +49,12 @@ const Header = ({toggleSidebar, sidebarCollapsed}: HeaderProps) => {
         <div className="flex items-center space-x-4 pr-8">
           {/* Dark mode toggle */}
           <button
-            onClick={toggleDarkMode}
+            onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300"
             aria-label="Toggle dark mode"
           >
             {darkMode ? (
-              <FaSun className="w-5 h-  5" />
+              <FaSun className="w-5 h-5"/>
             ) : (
               <FaMoon className="w-5 h-5" />
             )}

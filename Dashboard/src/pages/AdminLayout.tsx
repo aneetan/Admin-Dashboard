@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import { Layout } from 'antd'
 import { Outlet } from 'react-router-dom'
-import Sidebar from '../components/Sidebar'
 import Header from '../components/Header'
 import CustomFooter from '../components/CustomFooter'
+import CustomSidebar from '../components/CustomSidebar'
 
-const { Content } = Layout
 
 const AdminLayout = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -16,16 +14,16 @@ const AdminLayout = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Layout className="min-h-screen">
+      <div className="min-h-screen">
         <div 
           className={`fixed h-full z-20 transition-all duration-300 ease-in-out 
             ${collapsed ? 'w-20' : 'w-64'} 
             shadow-lg`}
         >
-          <Sidebar collapsed={collapsed} />
+          <CustomSidebar collapsed={collapsed} />
         </div>
 
-        <Layout 
+        <div 
           className={`transition-all duration-300 ease-in-out 
             ${collapsed ? 'ml-20' : 'ml-64'}`}
         >
@@ -37,18 +35,18 @@ const AdminLayout = () => {
           />
           </div>
           
-          <Content className="bg-gray-50">
+          <div className="bg-gray-50">
             <div className="bg-white rounded-lg shadow p-6 min-h-[calc(100vh-100px)]">
               <Outlet />
             </div>
-          </Content>
+          </div>
 
           <div className='flex justify-center items-center pt-2'>
             <CustomFooter/>
           </div>
 
-        </Layout>
-      </Layout>
+        </div>
+      </div>
     </div>
   )
 }

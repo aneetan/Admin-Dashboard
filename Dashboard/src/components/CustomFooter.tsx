@@ -1,5 +1,3 @@
-import { Footer } from 'antd/es/layout/layout'
-
 const CustomFooter = () => {
   return (
     <>
