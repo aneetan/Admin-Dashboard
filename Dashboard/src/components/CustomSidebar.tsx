@@ -15,11 +15,10 @@ interface NavLinkItems {
 
 const CustomSidebar = ({ collapsed }: Props) => {
     const [activeItem, setActiveItem] = useState<string>("Dashboard");
-    const location = useLocation();
 
     const navItems: NavLinkItems[] = [
         { name: 'Dashboard', icon: IoIosHome, path: '/dashboard' },
-        { name: 'Team', icon: FaUser, path: '/team' },
+        { name: 'Vehicles', icon: FaUser, path: '/team' },
         { name: 'Projects', icon: FaFolder, path: '/projects' },
         { name: 'Calendar', icon: FaCalendar, path: '/calendar' },
         { name: 'Reports', icon: FaChartLine, path: '/reports' },
