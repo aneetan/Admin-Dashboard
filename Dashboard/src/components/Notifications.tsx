@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IoNotifications, IoNotificationsOutline } from "react-icons/io5";
+import { IoNotifications } from "react-icons/io5";
 
 interface NotificationProps {
     id: number;
