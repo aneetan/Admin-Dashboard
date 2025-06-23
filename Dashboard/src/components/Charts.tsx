@@ -37,10 +37,14 @@ export const RevenueChart: React.FC = () => {
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          color: "#99A1AF"
+        }
       },
       title: {
         display: true,
         text: 'Monthly Revenue',
+        color: "#99A1AF"
       },
     },
     scales: {
@@ -48,6 +52,7 @@ export const RevenueChart: React.FC = () => {
         beginAtZero: true,
         ticks: {
           callback: (value) => `$${value}`,
+          color: "#99A1AF"
         },
       },
     },
@@ -61,7 +66,7 @@ export const RevenueChart: React.FC = () => {
         data: [3000, 4000, 5200, 2200, 8500],
         backgroundColor: '#008080',
         borderRadius: 8,
-      },
+      }
     ],
   };
 
@@ -75,15 +80,22 @@ export const BookingTrendsChart: React.FC = () => {
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          color: "#99A1AF"
+        }
       },
       title: {
         display: true,
         text: 'Weekly Bookings',
+        color:"#99a1af"
       },
     },
     scales: {
       y: {
         beginAtZero: true,
+        ticks: {
+          color: "#99A1AF"
+        },
       },
     },
   };
@@ -111,6 +123,9 @@ export const VehicleStatusChart: React.FC = () => {
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          color: "#99A1AF"
+        }
       },
       tooltip: {
         callbacks: {
@@ -152,11 +167,17 @@ export const RentalDurationChart: React.FC = () => {
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          color: "#99A1AF"
+        }
       },
     },
     scales: {
       y: {
         beginAtZero: true,
+        ticks: {
+          color: "#99A1AF"
+        },
       },
     },
   };
