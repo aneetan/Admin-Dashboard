@@ -68,7 +68,7 @@ const Dashboard = () => {
 
       {/* Recent Bookings Table */}
       <div className="bg-white dark:bg-gray-600 p-6 rounded-xl shadow-sm">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">Recent Bookings</h2>
+        <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-4">Recent Bookings</h2>
         <RecentBookings />
       </div>
     </div>
