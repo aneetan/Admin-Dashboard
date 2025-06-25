@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router"
 import AdminLayout from './pages/AdminLayout'
 import UserTable from './pages/UserTable'
 import Dashboard from './pages/Dashboard'
+import AddVehiclesForm from './pages/AddVehiclesForm'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<AdminLayout/>}>
             <Route path="/dashboard" element={<Dashboard/>} />
-            <Route path="/team" element={<UserTable/>} />
+            <Route path="/team" element={<AddVehiclesForm/>} />
             <Route path="/projects" element={<div> Project</div>} />
             <Route path="/calendar" element={<div> Calendar </div>} />
             <Route path="/reports" element={<div> Report </div>} />
