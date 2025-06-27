@@ -44,6 +44,7 @@ const AddVehiclesForm = () => {
     });
 
     const [errors, setErrors] = useState<ErrorProps>({});
+    const [imageUrl, setImageUrl] = useState<string>("");
 
   const vehicleConfig = {
     CAR: {
@@ -142,6 +143,29 @@ const AddVehiclesForm = () => {
     return isValid;
   }
 
+  const handleImageUpload = async(file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'admin_rental');
+    formData.append('cloud_name', 'dedwhvg7h');
+
+    try{
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/dedwhvg7h/image/upload`,
+        {
+          method: 'POST',
+          body: formData
+        }
+      );
+      const data = await response.json();
+      setImageUrl(data.secure_url)
+      console.log(imageUrl)
+
+    } catch(e) {
+      console.log("Error uploading image", e);
+    }    
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if(!validateForm()) return;
@@ -149,6 +173,7 @@ const AddVehiclesForm = () => {
     const submissionData = {
       ...formData,
       id: Math.random().toString(36).substring(2, 9),
+      image: imageUrl,
       details: vehicleConfig[selectedType].fields.map(field => ({
         type: field,
         value: formData[field] || ''
@@ -156,12 +181,6 @@ const AddVehiclesForm = () => {
     };
 
     console.log('Form submitted:', submissionData);
-  };
-
-  const handleImageUpload = (file: File) => {
-    console.log('Uploaded file:', file);
-    // Here you would typically upload to a server
-    // or process the image further
   };
 
   return (
