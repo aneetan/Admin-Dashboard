@@ -142,9 +142,6 @@ const AddVehiclesForm = () => {
     return isValid;
   }
 
-
-
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if(!validateForm()) return;
@@ -159,6 +156,12 @@ const AddVehiclesForm = () => {
     };
 
     console.log('Form submitted:', submissionData);
+  };
+
+  const handleImageUpload = (file: File) => {
+    console.log('Uploaded file:', file);
+    // Here you would typically upload to a server
+    // or process the image further
   };
 
   return (
@@ -204,7 +207,7 @@ const AddVehiclesForm = () => {
 
     <div className="mb-6">
       <label className="block text-gray-700 dark:text-gray-300 text-sm font-semibold mb-2">Vehicle Images <span className='text-red-500'> * </span>  </label>
-      <ImageUpload/>
+      <ImageUpload onImageUpload={handleImageUpload}/>
     </div>
 
     <div className="grid md:grid-cols-2 gap-6">
