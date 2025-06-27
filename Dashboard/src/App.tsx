@@ -1,7 +1,6 @@
 import './App.css'
 import {BrowserRouter, Route, Routes} from "react-router"
 import AdminLayout from './pages/AdminLayout'
-import UserTable from './pages/UserTable'
 import Dashboard from './pages/Dashboard'
 import AddVehiclesForm from './pages/AddVehiclesForm'
 

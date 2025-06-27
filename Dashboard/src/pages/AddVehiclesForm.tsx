@@ -144,14 +144,15 @@ const AddVehiclesForm = () => {
   }
 
   const handleImageUpload = async(file: File) => {
+    const cloud_name = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'admin_rental');
-    formData.append('cloud_name', 'dedwhvg7h');
+    formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+    formData.append('cloud_name', cloud_name);
 
     try{
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dedwhvg7h/image/upload`,
+        `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
         {
           method: 'POST',
           body: formData
